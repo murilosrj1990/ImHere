@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Im Here</string>
+    <string name="action_alunos">Alunos</string>
+    <string name="action_professor">Professor</string>
+    <string name="action_opcoes">Opções</string>
+
+</resources>
