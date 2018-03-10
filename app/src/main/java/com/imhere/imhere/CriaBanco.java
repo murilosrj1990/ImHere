@@ -15,6 +15,9 @@ public class CriaBanco extends SQLiteOpenHelper {
     protected static final String NOME = "nome";
     protected static final String EMAIL = "email";
     protected static final String DATANASC = "datanasc";
+
+
+
     protected static final int VERSAO = 1;
 
     public CriaBanco(Context context) {

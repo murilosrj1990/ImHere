@@ -37,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(getBaseContext(),PessoaActivity.class));
             return true;
         }
+        if (id == R.id.action_alunos) {
+            startActivity(new Intent(getBaseContext(),ListaPessoaActivity.class));
+            return true;
+        }
+        if (id == R.id.action_opcoes) {
+            startActivity(new Intent(getBaseContext(),ListaPessoaActivity.class));
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }

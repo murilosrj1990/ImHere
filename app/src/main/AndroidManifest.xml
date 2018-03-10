@@ -20,9 +20,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProfessorActivity" />
-        <activity android:name=".CriaAlunoActivity" />
+        <activity android:name=".AlunoActivity" />
         <activity android:name=".PessoaActivity" />
-        <activity android:name=".ListaPessoaActivity"></activity>
+        <activity android:name=".ListaPessoaActivity" />
+        <activity android:name=".CadastroTurmaActivity" />
+        <activity android:name=".AlteraAluno"></activity>
     </application>
 
 </manifest>
