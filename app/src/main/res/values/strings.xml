@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Im Here</string>
-    <string name="action_alunos">Alunos</string>
-    <string name="action_professor">Professor</string>
     <string name="action_opcoes">Opções</string>
+    <string name="action_professor">Professor</string>
+    <string name="action_turma">Turma</string>
+    <string name="textview">TextView</string>
+    <string name="iniciar_chamada">Iniciar Chamada</string>
+    <string name="selecionar_turma">Selecionar turma</string>
+    <string name="tempo_de_chamada">Tempo de Chamada</string>
+
 
 </resources>

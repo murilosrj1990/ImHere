@@ -17,7 +17,7 @@ public class BancoController {
     public BancoController(Context context){
         banco = new CriaBanco(context);
     }
-
+    //Método para inserir dados da pessoa
     public String insereDadoPessoa(String nome, String email, String datanasc){
         ContentValues valores;
         long resultado;
@@ -37,7 +37,7 @@ public class BancoController {
             return "Registro Inserido com sucesso" ;        }
 
     }
-
+    //Método para ler os dados da pessoa
     public Cursor carregaDados(){
         Cursor cursor;
         String[] campos =  {banco.ID,banco.NOME};
@@ -50,7 +50,7 @@ public class BancoController {
         db.close();
         return cursor;
     }
-
+    //Método para ler os dados da pessoa de um id especifico
     public Cursor carregaDadoById(int id){
         Cursor cursor;
         String[] campos =  {banco.ID,banco.NOME,banco.EMAIL,banco.DATANASC};
@@ -64,7 +64,7 @@ public class BancoController {
         db.close();
         return cursor;
     }
-
+    //Método para alterar os dados da pessoa
     public void alteraRegistro(int id, String nome, String email, String datanasc){
         ContentValues valores;
         String where;
@@ -81,7 +81,7 @@ public class BancoController {
         db.update(CriaBanco.TABELA,valores,where,null);
         db.close();
     }
-
+    //Método para deletar os dados da pessoa
     public void deletaRegistro(int id){
         String where = CriaBanco.ID + "=" + id;
         db = banco.getReadableDatabase();

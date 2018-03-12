@@ -3,10 +3,11 @@ package com.imhere.imhere;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -35,8 +36,18 @@ public class ListaPessoaActivity extends Activity {
                 String codigo;
                 cursor.moveToPosition(position);
                 codigo = cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.ID));
-                Intent intent = new Intent(ListaPessoaActivity.this, AlteraAluno.class);
+                Intent intent = new Intent(ListaPessoaActivity.this, AlteraAlunoActivity.class);
                 intent.putExtra("codigo", codigo);
+                startActivity(intent);
+                finish();
+            }
+        });
+        FloatingActionButton addAluno;
+        addAluno = findViewById(R.id.faButton);
+        addAluno.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( ListaPessoaActivity.this ,PessoaActivity.class);
                 startActivity(intent);
                 finish();
             }

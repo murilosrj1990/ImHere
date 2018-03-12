@@ -3,12 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.imhere.imhere.MainActivity">
     <item
-        android:id="@+id/action_alunos"
-        android:enabled="true"
-        android:orderInCategory="100"
-        android:title="@string/action_alunos"
-        android:visible="true" />
-    <item
         android:id="@+id/action_professor"
         android:enabled="true"
         android:orderInCategory="101"
@@ -18,4 +12,13 @@
         android:id="@+id/action_opcoes"
         android:orderInCategory="102"
         android:title="@string/action_opcoes" />
+
+    <item
+        android:id="@+id/action_turma"
+        android:enabled="true"
+        android:orderInCategory="100"
+        android:title="@string/action_turma"
+        android:visible="true" />
+
+
 </menu>

@@ -4,48 +4,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.imhere.imhere.ProfessorActivity">
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="321dp"
-        android:layout_height="40dp"
-        android:text="Nome"
-        android:textAlignment="center"
-        android:textColor="@android:color/holo_purple"
-        android:textSize="24sp"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="312dp" />
-
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:text="E-mail"
-        android:textColor="@android:color/holo_purple"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="378dp" />
+    android:background="@android:color/background_light"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.imhere.imhere.MainActivity"
+    tools:showIn="@layout/activity_main">
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="125dp"
+        android:id="@+id/button"
+        android:layout_width="149dp"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_purple"
-        android:text="Salvar"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimary"
+        android:text="Prosseguir"
         android:textColor="@android:color/background_light"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="446dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="302dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Nome"
+        android:textColor="@android:color/holo_purple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="299dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="E-mail"
+        android:textColor="@android:color/holo_purple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="24dp"
+        android:text="Cadastro do Professor"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_purple"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="166dp"
-        android:layout_height="173dp"
-        app:srcCompat="@drawable/imherelogo"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="99dp" />
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="191dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/imherelogo" />
 
 </android.support.constraint.ConstraintLayout>

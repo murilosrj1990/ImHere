@@ -1,5 +1,6 @@
 package com.imhere.imhere;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +31,9 @@ public class PessoaActivity extends AppCompatActivity {
                 resultado = crud.insereDadoPessoa(nomeString,emailString,datanascString);
 
                 Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
+                Intent intent = new Intent( PessoaActivity.this ,ListaPessoaActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

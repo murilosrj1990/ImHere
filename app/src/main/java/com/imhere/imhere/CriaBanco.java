@@ -18,7 +18,7 @@ public class CriaBanco extends SQLiteOpenHelper {
 
 
 
-    protected static final int VERSAO = 1;
+    protected static final int VERSAO = 2;
 
     public CriaBanco(Context context) {
         super(context, NOME_BANCO,null, VERSAO);
@@ -27,19 +27,22 @@ public class CriaBanco extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String sql = "CREATE TABLE "+TABELA+"("
+        String sql =
+            "CREATE TABLE "+TABELA+"("
             + ID + " integer primary key autoincrement,"
             + NOME + " text,"
             + EMAIL + " text,"
             + DATANASC + " text"
-            + ")";
+            + ");";
+
         db.execSQL(sql);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         String sql = "DROP TABLE IF EXISTS";
-        db.execSQL( sql + TABELA);
+        db.execSQL( sql +" "+ TABELA);
         onCreate(db);
+
     }
 }

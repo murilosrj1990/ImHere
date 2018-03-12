@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,6 +17,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Button chamada;
+        chamada = findViewById(R.id.button4);
+        chamada.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( MainActivity.this ,ChamadaActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -37,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(getBaseContext(),PessoaActivity.class));
             return true;
         }
-        if (id == R.id.action_alunos) {
+        if (id == R.id.action_turma) {
             startActivity(new Intent(getBaseContext(),ListaPessoaActivity.class));
             return true;
         }
@@ -45,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(getBaseContext(),ListaPessoaActivity.class));
             return true;
         }
+
+
 
         return super.onOptionsItemSelected(item);
     }

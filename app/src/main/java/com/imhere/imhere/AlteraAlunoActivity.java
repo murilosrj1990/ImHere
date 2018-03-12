@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class AlteraAluno extends AppCompatActivity {
+public class AlteraAlunoActivity extends AppCompatActivity {
 
     EditText nome;
     EditText email;
@@ -45,7 +45,7 @@ public class AlteraAluno extends AppCompatActivity {
                 crud.alteraRegistro(Integer.parseInt(codigo),
                         nome.getText().toString(),email.getText().toString(),
                         datanasc.getText().toString());
-                Intent intent = new Intent(AlteraAluno.this,ListaPessoaActivity.class);
+                Intent intent = new Intent(AlteraAlunoActivity.this,ListaPessoaActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -56,7 +56,7 @@ public class AlteraAluno extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 crud.deletaRegistro(Integer.parseInt(codigo));
-                Intent intent = new Intent(AlteraAluno.this,ListaPessoaActivity.class);
+                Intent intent = new Intent(AlteraAlunoActivity.this,ListaPessoaActivity.class);
             startActivity(intent);
             finish();
             }
