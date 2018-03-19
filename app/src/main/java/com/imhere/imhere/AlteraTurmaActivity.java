@@ -21,7 +21,7 @@ public class AlteraTurmaActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_altera_aluno);
+        setContentView(R.layout.activity_altera_turma);
 
         codigo = this.getIntent().getStringExtra("codigo");
 
@@ -58,12 +58,14 @@ public class AlteraTurmaActivity extends AppCompatActivity {
         });
 
         //Ação do botão cadastrar aluno
-        cadastraAluno = (Button)findViewById(R.id.button6);
+        cadastraAluno = (Button)findViewById(R.id.CadastraAluno);
+        System.out.println("Escopo 1 "+codigo);
         cadastraAluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AlteraTurmaActivity.this,ListaPessoaActivity.class);
                 //define variável extra para passar para outra tela
+                System.out.println("Escopo 2 "+codigo);
                 intent.putExtra("codigoTurma", codigo);
                 startActivity(intent);
                 finish();

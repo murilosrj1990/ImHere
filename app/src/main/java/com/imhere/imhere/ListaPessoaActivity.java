@@ -40,6 +40,7 @@ public class ListaPessoaActivity extends Activity {
                 codigo = cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.ID_PESSOA));
                 Intent intent = new Intent(ListaPessoaActivity.this, AlteraAlunoActivity.class);
                 intent.putExtra("codigo", codigo);
+                intent.putExtra("codigoTurma",codigoTurma);
                 startActivity(intent);
                 finish();
             }
@@ -50,6 +51,7 @@ public class ListaPessoaActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent( ListaPessoaActivity.this ,PessoaActivity.class);
+                intent.putExtra("codigoTurma" , codigoTurma);
                 startActivity(intent);
                 finish();
             }

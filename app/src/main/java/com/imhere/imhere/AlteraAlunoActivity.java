@@ -18,6 +18,7 @@ public class AlteraAlunoActivity extends AppCompatActivity {
     Cursor cursor;
     BancoController crud;
     String codigo;
+    String codigoTurma;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class AlteraAlunoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_altera_aluno);
 
         codigo = this.getIntent().getStringExtra("codigo");
+        codigoTurma=this.getIntent().getStringExtra("codigoTurma");
 
         crud = new BancoController(getBaseContext());
 
@@ -46,6 +48,7 @@ public class AlteraAlunoActivity extends AppCompatActivity {
                         nome.getText().toString(),email.getText().toString(),
                         datanasc.getText().toString());
                 Intent intent = new Intent(AlteraAlunoActivity.this,ListaPessoaActivity.class);
+                intent.putExtra("codigoTurma",codigoTurma);
                 startActivity(intent);
                 finish();
             }
@@ -57,7 +60,8 @@ public class AlteraAlunoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 crud.deletaRegistro(Integer.parseInt(codigo));
                 Intent intent = new Intent(AlteraAlunoActivity.this,ListaPessoaActivity.class);
-            startActivity(intent);
+                intent.putExtra("codigoTurma",codigoTurma);
+                startActivity(intent);
             finish();
             }
             });

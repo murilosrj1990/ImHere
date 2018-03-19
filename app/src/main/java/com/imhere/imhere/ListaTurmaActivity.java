@@ -22,9 +22,8 @@ public class ListaTurmaActivity extends AppCompatActivity {
 
         String[] nomeCampos = new String[]{CriaBanco.ID_TURMA, CriaBanco.NOME_TURMA};
         int[] idViews = new int[]{R.id.idPessoa, R.id.nomePessoa};
-
         SimpleCursorAdapter adaptador = new SimpleCursorAdapter(getBaseContext(),
-                R.layout.layout_nomes, cursor, nomeCampos, idViews, 0);
+                R.layout.layout_nomes, cursor,nomeCampos, idViews, 0);
         lista = (ListView) findViewById(R.id.listView);
         lista.setAdapter(adaptador);
 

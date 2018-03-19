@@ -17,7 +17,7 @@ public class PessoaActivity extends AppCompatActivity {
 
         Button botao = (Button)findViewById(R.id.button);
         codigoTurma = this.getIntent().getStringExtra("codigoTurma");
-
+        System.out.println(codigoTurma);
         botao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,11 +29,12 @@ public class PessoaActivity extends AppCompatActivity {
                 String emailString = email.getText().toString();
                 String datanascString = datanasc.getText().toString();
                 String resultado;
-
+                System.out.println(codigoTurma);
                 resultado = crud.insereDadoPessoa(nomeString,emailString,datanascString,Integer.parseInt(codigoTurma));
 
                 Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent( PessoaActivity.this ,ListaPessoaActivity.class);
+                intent.putExtra("codigoTurma",codigoTurma);
                 startActivity(intent);
                 finish();
             }

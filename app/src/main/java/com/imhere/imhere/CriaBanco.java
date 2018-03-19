@@ -18,12 +18,12 @@ public class CriaBanco extends SQLiteOpenHelper {
     protected static final String ID_TURMA_FK = "_id_turma_fk";
 
     protected static final String TABELA_TURMA = "turma";
-    protected static final String ID_TURMA = "_id_turma";
+    protected static final String ID_TURMA = "_id";
     protected static final String NOME_TURMA = "nome";
 
 
 
-    protected static final int VERSAO = 3;
+    protected static final int VERSAO = 4;
 
     public CriaBanco(Context context) {
         super(context, NOME_BANCO,null, VERSAO);
@@ -33,19 +33,19 @@ public class CriaBanco extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         String sql_turma =
-            "CREATE TABLE "+ TABELA_TURMA +"( "
+            "CREATE TABLE "+ TABELA_TURMA +" ( "
             + ID_TURMA + " integer primary key autoincrement,"
             + NOME_TURMA + " TEXT"
             + ");";
 
         String sql =
-            "CREATE TABLE "+ TABELA_PESSOA +"("
+            "CREATE TABLE "+ TABELA_PESSOA +" ( "
             + ID_PESSOA + " integer primary key autoincrement,"
             + NOME_PESSOA + " text, "
             + EMAIL_PESSOA + " text, "
             + DATANASC_PESSOA + " text, "
             + ID_TURMA_FK + " integer, "
-            + "FOREIGN KEY " + ID_TURMA_FK + " REFERENCES "+ TABELA_TURMA + "(" + ID_TURMA + ")"
+            + "FOREIGN KEY (" + ID_TURMA_FK + ") REFERENCES "+ TABELA_TURMA + "( " + ID_TURMA + " )"
             + ");";
 
 
@@ -57,6 +57,7 @@ public class CriaBanco extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         String sql = "DROP TABLE IF EXISTS";
         db.execSQL( sql +" "+ TABELA_PESSOA);
+        db.execSQL( sql +" "+ TABELA_TURMA);
         onCreate(db);
 
     }
