@@ -50,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         if (id == R.id.action_turma) {
-            startActivity(new Intent(getBaseContext(),ListaPessoaActivity.class));
+            startActivity(new Intent(getBaseContext(),ListaTurmaActivity.class));
             return true;
         }
         if (id == R.id.action_opcoes) {
-            startActivity(new Intent(getBaseContext(),ListaPessoaActivity.class));
+            startActivity(new Intent(getBaseContext(),ListaTurmaActivity.class));
             return true;
         }
 

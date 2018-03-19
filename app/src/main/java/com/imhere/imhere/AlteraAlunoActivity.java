@@ -35,9 +35,9 @@ public class AlteraAlunoActivity extends AppCompatActivity {
         alterar = (Button)findViewById(R.id.button2);
 
         cursor = crud.carregaDadoById(Integer.parseInt(codigo));
-        nome.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.NOME)));
-        email.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.EMAIL)));
-        datanasc.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.DATANASC)));
+        nome.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.NOME_PESSOA)));
+        email.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.EMAIL_PESSOA)));
+        datanasc.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.DATANASC_PESSOA)));
 
         alterar.setOnClickListener(new View.OnClickListener() {
             @Override

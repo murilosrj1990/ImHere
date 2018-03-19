@@ -18,7 +18,7 @@ public class ChamadaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chamada);
 
         BancoController banco= new BancoController(getBaseContext());
-        final Cursor cursor = banco.carregaDados();
+        final Cursor cursor = banco.carregaDadosTurma();
         ArrayList arrayList = new ArrayList();
         if(cursor != null && cursor.moveToFirst()){
             do{

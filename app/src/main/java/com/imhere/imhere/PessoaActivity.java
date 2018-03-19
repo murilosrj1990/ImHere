@@ -9,12 +9,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class PessoaActivity extends AppCompatActivity {
+    String codigoTurma;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pessoa);
 
         Button botao = (Button)findViewById(R.id.button);
+        codigoTurma = this.getIntent().getStringExtra("codigoTurma");
 
         botao.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,7 +30,7 @@ public class PessoaActivity extends AppCompatActivity {
                 String datanascString = datanasc.getText().toString();
                 String resultado;
 
-                resultado = crud.insereDadoPessoa(nomeString,emailString,datanascString);
+                resultado = crud.insereDadoPessoa(nomeString,emailString,datanascString,Integer.parseInt(codigoTurma));
 
                 Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent( PessoaActivity.this ,ListaPessoaActivity.class);

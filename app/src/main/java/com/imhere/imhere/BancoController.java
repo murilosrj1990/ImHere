@@ -18,17 +18,18 @@ public class BancoController {
         banco = new CriaBanco(context);
     }
     //Método para inserir dados da pessoa
-    public String insereDadoPessoa(String nome, String email, String datanasc){
+    public String insereDadoPessoa(String nome, String email, String datanasc, int codigoTurma){
         ContentValues valores;
         long resultado;
 
         db = banco.getWritableDatabase();
         valores = new ContentValues();
-        valores.put(CriaBanco.NOME, nome);
-        valores.put(CriaBanco.EMAIL, email);
-        valores.put(CriaBanco.DATANASC, datanasc);
+        valores.put(CriaBanco.NOME_PESSOA, nome);
+        valores.put(CriaBanco.EMAIL_PESSOA, email);
+        valores.put(CriaBanco.DATANASC_PESSOA, datanasc);
+        valores.put(CriaBanco.ID_TURMA_FK, codigoTurma);
 
-        resultado = db.insert(CriaBanco.TABELA, null, valores);
+        resultado = db.insert(CriaBanco.TABELA_PESSOA, null, valores);
         db.close();
 
         if (resultado ==-1) {
@@ -38,11 +39,12 @@ public class BancoController {
 
     }
     //Método para ler os dados da pessoa
-    public Cursor carregaDados(){
+    public Cursor carregaDados(int idTurma){
         Cursor cursor;
-        String[] campos =  {banco.ID,banco.NOME};
+        String[] campos =  {banco.ID_PESSOA,banco.NOME_PESSOA};
         db = banco.getReadableDatabase();
-        cursor = db.query(banco.TABELA, campos, null, null, null, null, null, null);
+        String where = CriaBanco.ID_TURMA_FK + "=" + idTurma;
+        cursor = db.query(banco.TABELA_PESSOA, campos, where, null, null, null, null, null);
 
         if(cursor!=null){
             cursor.moveToFirst();
@@ -53,10 +55,10 @@ public class BancoController {
     //Método para ler os dados da pessoa de um id especifico
     public Cursor carregaDadoById(int id){
         Cursor cursor;
-        String[] campos =  {banco.ID,banco.NOME,banco.EMAIL,banco.DATANASC};
-        String where = CriaBanco.ID + "=" + id;
+        String[] campos =  {banco.ID_PESSOA,banco.NOME_PESSOA,banco.EMAIL_PESSOA,banco.DATANASC_PESSOA};
+        String where = CriaBanco.ID_PESSOA + "=" + id;
         db = banco.getReadableDatabase();
-        cursor = db.query(CriaBanco.TABELA,campos,where, null, null, null, null, null);
+        cursor = db.query(CriaBanco.TABELA_PESSOA,campos,where, null, null, null, null, null);
 
         if(cursor!=null){
             cursor.moveToFirst();
@@ -71,21 +73,88 @@ public class BancoController {
 
         db = banco.getWritableDatabase();
 
-        where = CriaBanco.ID + "=" + id;
+        where = CriaBanco.ID_PESSOA + "=" + id;
 
         valores = new ContentValues();
-        valores.put(CriaBanco.NOME, nome);
-        valores.put(CriaBanco.EMAIL, email);
-        valores.put(CriaBanco.DATANASC, datanasc);
+        valores.put(CriaBanco.NOME_PESSOA, nome);
+        valores.put(CriaBanco.EMAIL_PESSOA, email);
+        valores.put(CriaBanco.DATANASC_PESSOA, datanasc);
 
-        db.update(CriaBanco.TABELA,valores,where,null);
+        db.update(CriaBanco.TABELA_PESSOA,valores,where,null);
         db.close();
     }
     //Método para deletar os dados da pessoa
     public void deletaRegistro(int id){
-        String where = CriaBanco.ID + "=" + id;
+        String where = CriaBanco.ID_PESSOA + "=" + id;
         db = banco.getReadableDatabase();
-        db.delete(CriaBanco.TABELA,where,null);
+        db.delete(CriaBanco.TABELA_PESSOA,where,null);
         db.close();
+    }
+
+    public String insereDadoTurma(String nome){
+        ContentValues valores;
+        long resultado;
+
+        db = banco.getWritableDatabase();
+        valores = new ContentValues();
+        valores.put(CriaBanco.NOME_TURMA, nome);
+
+        resultado = db.insert(CriaBanco.TABELA_TURMA, null, valores);
+        db.close();
+
+        if (resultado ==-1) {
+            return "Erro ao inserir registro";
+        }else{
+            return "Registro Inserido com sucesso" ;        }
+
+    }
+
+    public Cursor carregaDadosTurma(){
+        Cursor cursor;
+        String[] campos =  {banco.ID_TURMA,banco.NOME_TURMA};
+        db = banco.getReadableDatabase();
+        cursor = db.query(banco.TABELA_TURMA, campos, null, null, null, null, null, null);
+
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
+        db.close();
+        return cursor;
+    }
+
+    public void alteraRegistroTurma(int id, String nome){
+        ContentValues valores;
+        String where;
+
+        db = banco.getWritableDatabase();
+
+        where = CriaBanco.ID_TURMA + "=" + id;
+
+        valores = new ContentValues();
+        valores.put(CriaBanco.NOME_TURMA, nome);
+
+        db.update(CriaBanco.TABELA_TURMA,valores,where,null);
+        db.close();
+    }
+
+    public void deletaRegistroTurma(int id){
+        String where = CriaBanco.ID_TURMA + "=" + id;
+        db = banco.getReadableDatabase();
+        db.delete(CriaBanco.TABELA_TURMA,where,null);
+        db.close();
+    }
+
+    public Cursor carregaDadoTurmaById(int id){
+        Cursor cursor;
+        String[] campos =  {banco.ID_TURMA,banco.NOME_TURMA};
+        String where = CriaBanco.ID_TURMA + "=" + id;
+        db = banco.getReadableDatabase();
+        cursor = db.query(CriaBanco.TABELA_TURMA,campos,where, null, null, null, null, null);
+
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
+        db.close();
+        return cursor;
     }
 }
