@@ -7,6 +7,11 @@
     <string name="iniciar_chamada">Iniciar Chamada</string>
     <string name="selecionar_turma">Selecionar turma</string>
     <string name="tempo_de_chamada">Tempo de Chamada</string>
+    <string name="title_activity_aluno_confirmation">AlunoConfirmation</string>
+    <string name="titleTelaPrincipal">O auxiliar do professor</string>
+    <string name="txtBtnRealizarChamada">Realizar Chamada</string>
+    <string name="logo_imhere">Logo ImHere</string>
+    <string name="lista_de_turmas">Lista de Turmas</string>
 
 
 </resources>

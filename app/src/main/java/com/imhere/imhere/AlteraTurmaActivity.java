@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 public class AlteraTurmaActivity extends AppCompatActivity {
 
+    //Cria atributos da classe
     EditText nome;
     Button alterar;
     Button cadastraAluno;
@@ -18,19 +19,18 @@ public class AlteraTurmaActivity extends AppCompatActivity {
     BancoController crud;
     String codigo;
 
+    //Método de criação
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_altera_turma);
-
+        //Pega informação vinda de outra Activity
         codigo = this.getIntent().getStringExtra("codigo");
-
+        //Controi Controller do Banco de Dados
         crud = new BancoController(getBaseContext());
 
-        nome = (EditText)findViewById(R.id.editText4);
-
-        alterar = (Button)findViewById(R.id.button2);
-
+        nome = (EditText)findViewById(R.id.edtNomeAluno);
+        alterar = (Button)findViewById(R.id.btnAlterarAluno);
         cursor = crud.carregaDadoTurmaById(Integer.parseInt(codigo));
         nome.setText(cursor.getString(cursor.getColumnIndexOrThrow(CriaBanco.NOME_TURMA)));
 
@@ -59,13 +59,16 @@ public class AlteraTurmaActivity extends AppCompatActivity {
 
         //Ação do botão cadastrar aluno
         cadastraAluno = (Button)findViewById(R.id.CadastraAluno);
-        System.out.println("Escopo 1 "+codigo);
         cadastraAluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(AlteraTurmaActivity.this,ListaPessoaActivity.class);
+
                 //define variável extra para passar para outra tela
                 System.out.println("Escopo 2 "+codigo);
+
+                //Envia informações para outra Activity
                 intent.putExtra("codigoTurma", codigo);
                 startActivity(intent);
                 finish();
