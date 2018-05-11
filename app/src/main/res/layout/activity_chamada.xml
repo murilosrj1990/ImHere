@@ -27,7 +27,7 @@
 
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnInicioCh"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="30dp"

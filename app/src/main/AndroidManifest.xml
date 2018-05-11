@@ -29,7 +29,11 @@
         <activity android:name=".OpcoesActivity" />
         <activity android:name=".AlteraTurmaActivity" />
         <activity android:name=".ListaTurmaActivity" />
-        <activity android:name=".AlunoCode"></activity>
+        <activity android:name=".AlunoCode" />
+        <activity
+            android:name=".LeitorQR"
+            android:label="@string/title_activity_leitor_qr"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

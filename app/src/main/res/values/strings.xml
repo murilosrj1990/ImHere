@@ -12,6 +12,7 @@
     <string name="txtBtnRealizarChamada">Realizar Chamada</string>
     <string name="logo_imhere">Logo ImHere</string>
     <string name="lista_de_turmas">Lista de Turmas</string>
+    <string name="title_activity_leitor_qr">LeitorQR</string>
 
 
 </resources>
