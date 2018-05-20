@@ -21,6 +21,10 @@ public class CriaBanco extends SQLiteOpenHelper {
     protected static final String ID_TURMA = "_id";
     protected static final String NOME_TURMA = "nome";
 
+    protected static final String TABELA_CHAMADA = "chamada";
+    protected static final String ID_CHAMADA = "_id";
+    protected static final String DATA_CHAMADA = "data_cham";
+
 
 
     protected static final int VERSAO = 4;
@@ -48,9 +52,18 @@ public class CriaBanco extends SQLiteOpenHelper {
             + "FOREIGN KEY (" + ID_TURMA_FK + ") REFERENCES "+ TABELA_TURMA + "( " + ID_TURMA + " )"
             + ");";
 
+        String sql_chamada =
+                "CREATE TABLE "+ TABELA_CHAMADA +" ( "
+                        + ID_CHAMADA + " integer primary key autoincrement,"
+                        + DATA_CHAMADA + " text, "
+                        + ID_TURMA_FK + " integer, "
+                        + "FOREIGN KEY (" + ID_TURMA_FK + ") REFERENCES "+ TABELA_TURMA + "( " + ID_TURMA + " )"
+                        + ");";
+
 
         db.execSQL(sql_turma);
         db.execSQL(sql);
+        db.execSQL(sql_chamada);
     }
 
     @Override
@@ -58,6 +71,7 @@ public class CriaBanco extends SQLiteOpenHelper {
         String sql = "DROP TABLE IF EXISTS";
         db.execSQL( sql +" "+ TABELA_PESSOA);
         db.execSQL( sql +" "+ TABELA_TURMA);
+        db.execSQL( sql +" "+ TABELA_CHAMADA);
         onCreate(db);
 
     }
