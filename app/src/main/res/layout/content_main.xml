@@ -39,9 +39,18 @@
         android:background="@color/colorPrimary"
         android:text="@string/txtBtnRealizarChamada"
         android:textColor="@android:color/white"
-        android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"/>
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-2611676155797666/2083632931"
+    />
+
 
 </LinearLayout>
