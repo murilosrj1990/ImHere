@@ -35,7 +35,8 @@ public class BancoController {
         if (resultado ==-1) {
             return "Erro ao inserir registro";
         }else{
-            return "Registro Inserido com sucesso" ;        }
+            return "Registro Inserido com sucesso" ;
+        }
 
     }
     //Método para ler os dados da pessoa
@@ -105,7 +106,8 @@ public class BancoController {
         if (resultado ==-1) {
             return "Erro ao inserir registro";
         }else{
-            return "Registro Inserido com sucesso" ;        }
+            return "Registro Inserido com sucesso" ;
+        }
 
     }
 
@@ -157,4 +159,55 @@ public class BancoController {
         db.close();
         return cursor;
     }
+
+    //Método para inserir dados da Chamada
+    public String insereDadoChamada(String dataChamada, int codigoTurma){
+        ContentValues valores;
+        long resultado;
+
+        db = banco.getWritableDatabase();
+        valores = new ContentValues();
+        valores.put(CriaBanco.DATA_CHAMADA, dataChamada);
+        valores.put(CriaBanco.ID_TURMA_FK, codigoTurma);
+
+        resultado = db.insert(CriaBanco.TABELA_PESSOA, null, valores);
+        db.close();
+
+        if (resultado ==-1) {
+            return "Erro ao inserir registro";
+        }else{
+            return "Registro Inserido com sucesso" ;
+        }
+
+    }
+
+    //Método para ler os dados da chamada
+    public Cursor carregaDadosChamada(int idTurma){
+        Cursor cursor;
+        String[] campos =  {banco.ID_CHAMADA,banco.DATA_CHAMADA};
+        db = banco.getReadableDatabase();
+        String where = CriaBanco.ID_CHAMADA_FK + "=" + idTurma;
+        cursor = db.query(banco.TABELA_CHAMADA, campos, where, null, null, null, null, null);
+
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
+        db.close();
+        return cursor;
+    }
+
+    public Cursor carregaDadosListaChamada(int idTurma){
+        Cursor cursor;
+        String[] campos =  {banco.ID_CHAMADA,banco.DATA_CHAMADA};
+        db = banco.getReadableDatabase();
+        String where = CriaBanco.ID_TURMA_FK + "=" + idTurma;
+        cursor = db.query(banco.TABELA_PESSOA, campos, where, null, null, null, null, null);
+
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
+        db.close();
+        return cursor;
+    }
+
 }

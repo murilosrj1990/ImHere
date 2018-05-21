@@ -28,8 +28,8 @@ public class ListaPessoaActivity extends Activity {
         int[] idViews = new int[]{R.id.idPessoa, R.id.nomePessoa};
 
         SimpleCursorAdapter adaptador = new SimpleCursorAdapter(getBaseContext(),
-                R.layout.layout_nomes, cursor, nomeCampos, idViews, 0);
-        lista = (ListView) findViewById(R.id.listView);
+                R.layout.layout_presenca, cursor, nomeCampos, idViews, 0);
+        lista = (ListView) findViewById(R.id.lvPresenca);
         lista.setAdapter(adaptador);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {

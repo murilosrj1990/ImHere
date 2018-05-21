@@ -25,6 +25,14 @@ public class CriaBanco extends SQLiteOpenHelper {
     protected static final String ID_CHAMADA = "_id";
     protected static final String DATA_CHAMADA = "data_cham";
 
+    protected static final String TABELA_LISTA_CHAMADA = "listachamada";
+
+    protected static final String ID_LISTA_CHAMADA = "_id";
+    protected static final String ID_CHAMADA_FK = "_id_chamada_fk";
+    protected static final String ID_PESSOA_FK = "_id_pessoa_fk";
+    protected static final String PRESENCA = "presenca";
+
+
 
 
     protected static final int VERSAO = 4;
@@ -60,10 +68,21 @@ public class CriaBanco extends SQLiteOpenHelper {
                         + "FOREIGN KEY (" + ID_TURMA_FK + ") REFERENCES "+ TABELA_TURMA + "( " + ID_TURMA + " )"
                         + ");";
 
+        String sql_lista_chamada =
+                "CREATE TABLE "+ TABELA_LISTA_CHAMADA +" ( "
+                        + ID_LISTA_CHAMADA + " integer primary key autoincrement,"
+                        + PRESENCA + " integer, "
+                        + ID_TURMA_FK + " integer, "
+                        + ID_PESSOA_FK + " integer, "
+                        + "FOREIGN KEY (" + ID_CHAMADA_FK + ") REFERENCES "+ TABELA_CHAMADA + "( " + ID_CHAMADA + " )"
+                        + "FOREIGN KEY (" + ID_PESSOA_FK + ") REFERENCES "+ TABELA_PESSOA + "( " + ID_PESSOA + " )"
+                        + ");";
+
 
         db.execSQL(sql_turma);
         db.execSQL(sql);
         db.execSQL(sql_chamada);
+        db.execSQL(sql_lista_chamada);
     }
 
     @Override
@@ -72,6 +91,7 @@ public class CriaBanco extends SQLiteOpenHelper {
         db.execSQL( sql +" "+ TABELA_PESSOA);
         db.execSQL( sql +" "+ TABELA_TURMA);
         db.execSQL( sql +" "+ TABELA_CHAMADA);
+        db.execSQL( sql +" "+ TABELA_LISTA_CHAMADA);
         onCreate(db);
 
     }

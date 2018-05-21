@@ -4,8 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="20dp"
-    android:paddingRight="20dp"
     tools:context="com.imhere.imhere.ChamadaActivity">
 
     <TextView
@@ -25,7 +23,6 @@
         android:layout_height="40dp"
         android:layout_marginTop="20dp" />
 
-
     <Button
         android:id="@+id/btnInicioCh"
         android:layout_width="match_parent"
@@ -39,5 +36,15 @@
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adViewChamada"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="ca-app-pub-2611676155797666/2083632931"
+        />
 
 </LinearLayout>
