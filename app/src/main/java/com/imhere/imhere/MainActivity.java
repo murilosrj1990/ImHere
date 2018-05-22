@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_professor) {
-            startActivity(new Intent(getBaseContext(),PessoaActivity.class));
+            startActivity(new Intent(getBaseContext(),CadastroAlunoActivity.class));
             return true;
         }
         if (id == R.id.action_turma) {

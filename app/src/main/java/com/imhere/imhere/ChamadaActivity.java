@@ -1,5 +1,6 @@
 package com.imhere.imhere;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -50,10 +52,10 @@ public class ChamadaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent( ChamadaActivity.this , LeitorQR.class);
                 Spinner spinner = (Spinner) findViewById(R.id.spinner);
-                String codigo = spinner.getSelectedItem().toString();
-                intent.putExtra("codigoTurma", codigo);
-                startActivity(intent);
+                String codTurma = spinner.getSelectedItem().toString();
 
+                intent.putExtra("codigoTurma", codTurma);
+                startActivity(intent);
             }
         });
     }

@@ -28,8 +28,8 @@ public class ListaPessoaActivity extends Activity {
         int[] idViews = new int[]{R.id.idPessoa, R.id.nomePessoa};
 
         SimpleCursorAdapter adaptador = new SimpleCursorAdapter(getBaseContext(),
-                R.layout.layout_presenca, cursor, nomeCampos, idViews, 0);
-        lista = (ListView) findViewById(R.id.lvPresenca);
+                R.layout.layout_nomes, cursor, nomeCampos, idViews, 0);
+        lista = (ListView) findViewById(R.id.listView);
         lista.setAdapter(adaptador);
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -50,7 +50,7 @@ public class ListaPessoaActivity extends Activity {
         addAluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( ListaPessoaActivity.this ,PessoaActivity.class);
+                Intent intent = new Intent( ListaPessoaActivity.this ,CadastroAlunoActivity.class);
                 intent.putExtra("codigoTurma" , codigoTurma);
                 startActivity(intent);
                 finish();

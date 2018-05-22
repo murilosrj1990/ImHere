@@ -21,7 +21,7 @@ public class CadastroTurmaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 BancoController crud = new BancoController(getBaseContext());
-                EditText nome = (EditText)findViewById(R.id.editText);
+                EditText nome = (EditText)findViewById(R.id.etNomeAluno);
                 String nomeString = nome.getText().toString();
                 String resultado;
 
